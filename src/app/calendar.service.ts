@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Calendar } from './calendar';
-import { CALENDARS } from './mock-calendar';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -39,11 +38,11 @@ export class CalendarService {
       .pipe(tap(_ => this.log(`found calendars matching "${term}"`)), catchError(this.handleError<Calendar[]>('searchCalendars', [])));
   }
 
-  /** PUT: update the calendar on the server */
-  updateCalendar (calendar: Calendar): Observable<any> {
-    return this.http.put(this.calendarUrl, calendar, this.httpOptions)
-      .pipe(tap(_ => this.log(`updated hero id=${calendar.id}`)), catchError(this.handleError<any>('updateCalendar')));
-  }
+/** PUT: update the calendar on the server */
+updateCalendar (calendar: Calendar): Observable<any> {
+  return this.http.put(this.calendarUrl, calendar, this.httpOptions)
+  .pipe(tap(_ => this.log(`updated hero id=${calendar.id}`)), catchError(this.handleError<any>('updateCalendar')));
+}
 
   /** POST: add a new calendar to the server */
   addCalendar (calendar: Calendar): Observable<Calendar> {
