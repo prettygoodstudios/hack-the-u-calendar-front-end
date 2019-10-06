@@ -1,0 +1,10 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+    <a *ngFor="let calendar of calendars" class="col-1-4" routerLink="/detail/{{ calendar.id }}">
+        <div class="module calendar">
+            <h4>{{ calendar.name }}</h4>
+        </div>
+    </a>
+</div>
+
+<app-calendar-search></app-calendar-search>

@@ -1,0 +1,15 @@
+<div *ngIf="calendar">
+    <h2>{{ calendar.name | uppercase }} Details</h2>
+    <div>
+        <span>id: </span>
+        {{ calendar.id }}
+    </div>
+    <div>
+        <label>
+            name:
+            <input [(ngModel)]="calendar.name" placeholder="name" />
+        </label>
+    </div>
+    <button (click)="goBack()">Go Back</button>
+    <button (click)="save()">Save</button>
+</div>
