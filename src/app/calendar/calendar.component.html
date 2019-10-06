@@ -1,11 +1,11 @@
 <h2>My Heroes</h2>
 <ul class="calendars">
-    <li *ngFor="let calendar of calendars">
-        <a routerLink="/detail/{{ calendar.id }}">
-            <span class="badge">{{ calendar.id }}</span>
-            {{ calendar.name }}
+    <li *ngFor="let project of calendars">
+        <a routerLink="/project/{{ project.id }}">
+            <span class="badge">{{ project.id }}</span>
+            {{ project.name }}
         </a>
-        <button class="delete" title="delete calendar" (click)="delete(calendar)">X</button>
+        <button class="delete" title="delete calendar" (click)="delete(project)">X</button>
     </li>
 </ul>
 <div>
